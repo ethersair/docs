@@ -35,4 +35,11 @@ The unique two token system (VET+VTHO) significantly helps separate the cost of 
 * VTHO generation from any address holding VET at the predetermined velocity of $5*10^{-8}$ per VET per block (10s)
 * 70% of VTHO paid in each transaction is destroyed and the rest is awarded to the Authority Masternode Operator
 * Adjustment to variables (e.g. gas price, velocity) can be made to maintain the equilibrium of VTHO demand and supply
+import { Framework } from '@vechain/connex-framework'
+import { Driver, SimpleNet } from '@vechain/connex-driver'
 
+const net = new SimpleNet('http://localhost:8669/')
+const driver = await Driver.connect(net)
+
+// now we get the ready-to-use Connex instance object
+const connex = new Framework(driver)
